@@ -22,9 +22,8 @@ func main() {
 		output = append(output, input)
 	}
 
-	str := string(output)
 	r, _ := regexp.Compile("\t[0-9a-fA-F]+")
-	matched := r.FindAllString(str, -1)
+	matched := r.FindAllString(string(output), -1)
 	var buffer bytes.Buffer
 
 	for _, e := range matched {
