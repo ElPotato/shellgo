@@ -1,8 +1,8 @@
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := bci
 BIN_NAME := "shellgo"
 LD_FLAGS := -ldflags='-s -w'
 
-all: test build compress
+bci: build compress install
 
 test:
 	@go test shell_test.go --count=1
