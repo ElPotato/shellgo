@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func Reader() []rune {
+func STDINReader() []rune {
 	var output []rune
 	reader := bufio.NewReader(os.Stdin)
 
@@ -24,10 +24,10 @@ func Reader() []rune {
 	return output
 }
 
-func Parse(input []rune) string {
+func Parse(input string) string {
 	var buffer bytes.Buffer
 	r, _ := regexp.Compile("\t[0-9a-fA-F]+")
-	matched := r.FindAllString(string(input), -1)
+	matched := r.FindAllString(input, -1)
 
 	for _, e := range matched {
 		buffer.WriteString(strings.Trim(e, "\t"))

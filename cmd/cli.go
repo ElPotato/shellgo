@@ -4,8 +4,8 @@ import sgo "github.com/ElPotato/shellgo"
 import "fmt"
 
 func main() {
-	data := sgo.Reader()
-	ready := sgo.Parse(data)
+	data := sgo.STDINReader()
+	ready := sgo.Parse(string(data))
 
 	fmt.Printf(ready)
 }
