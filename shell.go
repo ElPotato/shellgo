@@ -11,11 +11,6 @@ import (
 )
 
 func main() {
-	_, err := os.Stdin.Stat()
-	if err != nil {
-		panic(err)
-	}
-
 	reader := bufio.NewReader(os.Stdin)
 	var output []rune
 
