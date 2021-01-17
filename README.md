@@ -1,2 +1,12 @@
 # shellgo
-Extract opcodes from Go binary
+Parse shellcode from `go tool objdump -S <file>` output.
+
+## How to?
+
+* `make && make install`
+* `go tool compile -S -N file.go`
+* `go tool objdump -S file.o | shellgo`
+
+## Bugs
+
+* Incorrectly append OPCODE into hex output
