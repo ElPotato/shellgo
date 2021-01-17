@@ -8,7 +8,7 @@ test:
 	@go test shell_test.go --count=1
 
 build:
-	@go build $(LD_FLAGS) -o $(BIN_NAME) *.go
+	@go build $(LD_FLAGS) -o $(BIN_NAME) cmd/cli.go
 
 compress: 
 	@upx $(BIN_NAME)

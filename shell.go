@@ -1,18 +1,17 @@
-package main
+package shellgo
 
 import (
 	"bufio"
 	"bytes"
-	"fmt"
 	"io"
 	"os"
 	"regexp"
 	"strings"
 )
 
-func main() {
-	reader := bufio.NewReader(os.Stdin)
+func Reader() []rune {
 	var output []rune
+	reader := bufio.NewReader(os.Stdin)
 
 	for {
 		input, _, err := reader.ReadRune()
@@ -21,8 +20,8 @@ func main() {
 		}
 		output = append(output, input)
 	}
-	ready := Parse(output)
-	fmt.Printf(ready)
+
+	return output
 }
 
 func Parse(input []rune) string {

@@ -1,4 +1,4 @@
-package main
+package shellgo_test
 
 import (
 	"github.com/stretchr/testify/assert"
