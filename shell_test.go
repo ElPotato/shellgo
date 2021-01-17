@@ -15,9 +15,9 @@ func Test_parseOutputValidity(t *testing.T) {
 		inputDir + "1_test_input.txt": "48c74424080000000048c74424082f010000c3",
 		inputDir + "2_test_input.txt": "48c74424080000000048c744240800000000c3"}
 
-	for path, value := range inputs {
+	for path, expected := range inputs {
 		file, _ := ioutil.ReadFile(path)
 		parsed := sgo.Parse(string(file))
-		assert.Equal(t, value, parsed)
+		assert.Equal(t, expected, parsed)
 	}
 }
