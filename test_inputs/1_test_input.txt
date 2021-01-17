@@ -1,0 +1,6 @@
+TEXT %22%22.run(SB) gofile../Users/mistrz/go/src/github.com/ElPotato/byteCode/ups.go
+func run() int {
+  0x25e			48c744240800000000	MOVQ $0x0, 0x8(SP)	
+	return 303
+  0x267			48c74424082f010000	MOVQ $0x12f, 0x8(SP)	
+  0x270			c3			RET			

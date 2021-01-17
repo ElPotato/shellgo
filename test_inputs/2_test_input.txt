@@ -1,0 +1,6 @@
+TEXT %22%22.run(SB) gofile../Users/mistrz/go/src/github.com/ElPotato/byteCode/works.go
+func run() int {
+  0x264			48c744240800000000	MOVQ $0x0, 0x8(SP)	
+	return 0
+  0x26d			48c744240800000000	MOVQ $0x0, 0x8(SP)	
+  0x276			c3			RET			

@@ -1,0 +1,28 @@
+TEXT %22%22.run(SB) gofile../Users/mistrz/go/src/github.com/ElPotato/byteCode/emptyf.go
+func run() int { 
+  0x268			4883ec20		SUBQ $0x20, SP		
+  0x26c			48896c2418		MOVQ BP, 0x18(SP)	
+  0x271			488d6c2418		LEAQ 0x18(SP), BP	
+  0x276			48c744242800000000	MOVQ $0x0, 0x28(SP)	
+	z := 5
+  0x27f			48c7042405000000	MOVQ $0x5, 0(SP)	
+	y := 10
+  0x287			48c74424080a000000	MOVQ $0xa, 0x8(SP)	
+	x := 3
+  0x290			48c744241003000000	MOVQ $0x3, 0x10(SP)	
+    return z + y / x
+  0x299			488b0c24		MOVQ 0(SP), CX			
+  0x29d			488b542408		MOVQ 0x8(SP), DX		
+  0x2a2			eb00			JMP 0x2a4			
+  0x2a4			48b8abaaaaaaaaaaaaaa	MOVQ $0xaaaaaaaaaaaaaaab, AX	
+  0x2ae			4889d3			MOVQ DX, BX			
+  0x2b1			48f7ea			IMULQ DX			
+  0x2b4			4801da			ADDQ BX, DX			
+  0x2b7			48d1fa			SARQ $0x1, DX			
+  0x2ba			48c1fb3f		SARQ $0x3f, BX			
+  0x2be			4829da			SUBQ BX, DX			
+  0x2c1			4801d1			ADDQ DX, CX			
+  0x2c4			48894c2428		MOVQ CX, 0x28(SP)		
+  0x2c9			488b6c2418		MOVQ 0x18(SP), BP		
+  0x2ce			4883c420		ADDQ $0x20, SP			
+  0x2d2			c3			RET				
