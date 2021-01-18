@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	sgo "github.com/ElPotato/shellgo"
 	"io/ioutil"
 )
@@ -22,7 +21,7 @@ func main() {
 	data := sgo.STDINReader()
 	ready := sgo.Parse(string(data))
 
-	fmt.Printf(ready)
+	println(ready)
 
 	if *dumpPath != "" {
 		err := saveInFile(*dumpPath, ready, string(data))
@@ -46,5 +45,5 @@ func saveInFile(path string, dataOut, dataIn string) error {
 }
 
 func printOutVersion() {
-	fmt.Printf("shellgo build version: %s\n", BuildVersion)
+	println(BuildVersion)
 }
