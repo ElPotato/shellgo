@@ -10,4 +10,5 @@ Parse shellcode from `go tool objdump -S <file>` output.
 ### Flags
 
 * `-dump <file_name>` / Result in `file_name.in` and `file_name.out` file respectively to `stdin` and `stdout` data.
+* `-version` / Print out build version
 
