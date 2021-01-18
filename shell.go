@@ -26,7 +26,7 @@ func STDINReader() []rune {
 
 func Parse(input string) string {
 	var buffer bytes.Buffer
-	r, _ := regexp.Compile("\t[0-9a-fA-F]+")
+	r, _ := regexp.Compile("\t[0-9a-f]+")
 	matched := r.FindAllString(input, -1)
 
 	for _, e := range matched {
