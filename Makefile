@@ -1,6 +1,7 @@
 .DEFAULT_GOAL := bci
 BIN_NAME := "shellgo"
-LD_FLAGS := -ldflags='-s -w'
+VERSION := $(shell git describe --tags --always --dirty="")
+LD_FLAGS := -ldflags='-X "main.BuildVersion=$(VERSION)" -s -w'
 
 bci: build compress install
 

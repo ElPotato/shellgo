@@ -7,9 +7,17 @@ import (
 	"io/ioutil"
 )
 
+var BuildVersion string
+
 func main() {
 	dumpPath := flag.String("dump", "", "path for input/output data dump")
+	version := flag.Bool("version", false, "print out software version")
 	flag.Parse()
+
+	if *version {
+		printOutVersion()
+		return
+	}
 
 	data := sgo.STDINReader()
 	ready := sgo.Parse(string(data))
@@ -35,4 +43,8 @@ func saveInFile(path string, dataOut, dataIn string) error {
 		return errOut
 	}
 	return nil
+}
+
+func printOutVersion() {
+	fmt.Printf("shellgo build version: %s\n", BuildVersion)
 }
