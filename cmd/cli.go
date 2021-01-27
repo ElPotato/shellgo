@@ -11,6 +11,7 @@ var BuildVersion string
 func main() {
 	dumpPath := flag.String("dump", "", "path for input/output data dump")
 	version := flag.Bool("version", false, "print out software version")
+	format0x := flag.Bool("0x", false, "format output e.g. 0x01, 0x02...")
 	flag.Parse()
 
 	if *version {
@@ -19,7 +20,12 @@ func main() {
 	}
 
 	data := sgo.STDINReader()
-	ready := sgo.Parse(string(data))
+	var ready string
+	if *format0x {
+		ready = sgo.Parse(string(data)).Format0x()
+	} else {
+		ready = sgo.Parse(string(data)).Default()
+	}
 
 	println(ready)
 
