@@ -3,7 +3,7 @@ Parse bytecode from `go tool objdump` output.
 
 ## How to?
 
-* `make && make install`
+* `make`
 * `go tool compile -S -N file.go`
 * `go tool objdump -S file.o | shellgo`
 
