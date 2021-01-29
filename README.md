@@ -1,5 +1,5 @@
 # shellgo
-Parse bytecode from `go tool objdump -S <file>` output.
+Parse bytecode from `go tool objdump` output.
 
 ## How to?
 
