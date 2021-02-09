@@ -1,7 +1,6 @@
 package shellgo_test
 
 import (
-	"fmt"
 	sgo "github.com/ElPotato/shellgo"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
@@ -36,20 +35,10 @@ func getTestData() []TestData {
 	}
 }
 
-func Test_parseOutputDefaultValidity(t *testing.T) {
+func Test_parseOutputDataValidation(t *testing.T) {
 	for _, e := range getTestData() {
-		fmt.Println("case: ", e.Path)
 		file, _ := ioutil.ReadFile(e.Path)
-		parsed := sgo.Parse(string(file)).Default()
-		assert.Equal(t, e.Default, parsed)
-	}
-}
-
-func Test_parseOutputFormat0xValidity(t *testing.T) {
-	for _, e := range getTestData() {
-		fmt.Println("case: ", e.Path)
-		file, _ := ioutil.ReadFile(e.Path)
-		parsed := sgo.Parse(string(file)).Format0x()
-		assert.Equal(t, e.Format0x, parsed)
+		assert.Equal(t, e.Default, sgo.Parse(string(file)).Default())
+		assert.Equal(t, e.Format0x, sgo.Parse(string(file)).Format0x())
 	}
 }
