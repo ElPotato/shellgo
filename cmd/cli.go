@@ -38,7 +38,7 @@ func main() {
 	}
 }
 
-func saveInFile(path string, dataOut, dataIn string) error {
+func saveInFile(path, dataOut, dataIn string) error {
 	errIn := ioutil.WriteFile(path+".in", []byte(dataIn), 0644)
 	if errIn != nil {
 		return errIn
