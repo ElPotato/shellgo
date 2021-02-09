@@ -37,7 +37,10 @@ func getTestData() []TestData {
 
 func Test_parseOutputDataValidation(t *testing.T) {
 	for _, e := range getTestData() {
-		file, _ := ioutil.ReadFile(e.Path)
+		file, err := ioutil.ReadFile(e.Path)
+		if err != nil {
+			t.Fatal(err)
+		}
 		assert.Equal(t, e.Default, sgo.Parse(string(file)).Default())
 		assert.Equal(t, e.Format0x, sgo.Parse(string(file)).Format0x())
 	}
