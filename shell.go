@@ -39,8 +39,9 @@ func (o Output) Default() string {
 
 // STDINReader append standard input characters.
 func STDINReader() []rune {
-	var output []rune
 	reader := bufio.NewReader(os.Stdin)
+
+	var output []rune
 
 	for {
 		input, _, err := reader.ReadRune()
