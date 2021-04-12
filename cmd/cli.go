@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	sgo "github.com/ElPotato/shellgo"
 	"io/ioutil"
+
+	sgo "github.com/ElPotato/shellgo"
 )
 
 var BuildVersion string

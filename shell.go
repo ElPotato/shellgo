@@ -10,12 +10,12 @@ import (
 )
 
 type Output struct {
-	RAW string
+	raw string
 }
 
 func (o Output) Format0x() string {
 	var buffer bytes.Buffer
-	bytesArray := []byte(o.RAW)
+	bytesArray := []byte(o.raw)
 
 	for c := 0; c <= len(bytesArray)-2; {
 		buffer.WriteString("0x")
@@ -29,7 +29,7 @@ func (o Output) Format0x() string {
 }
 
 func (o Output) Default() string {
-	return o.RAW
+	return o.raw
 }
 
 func STDINReader() []rune {
@@ -56,5 +56,5 @@ func Parse(input string) Output {
 		buffer.WriteString(strings.Trim(e, "\t"))
 	}
 
-	return Output{RAW: buffer.String()}
+	return Output{raw: buffer.String()}
 }
