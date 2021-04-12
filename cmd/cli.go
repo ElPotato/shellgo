@@ -8,7 +8,8 @@ import (
 	sgo "github.com/ElPotato/shellgo"
 )
 
-// BuildVersion keep information about version tag along with commit ID
+// BuildVersion keep information about version tag along with commit ID.
+// nolint
 var BuildVersion string
 
 func main() {
@@ -18,7 +19,8 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		printOutVersion()
+		fmt.Println(BuildVersion)
+
 		return
 	}
 
@@ -41,6 +43,7 @@ func main() {
 	}
 }
 
+// saveInFile export input data and output data to separated files *.in/ *.out.
 func saveInFile(path, dataOut, dataIn string) error {
 	err := ioutil.WriteFile(path+".in", []byte(dataIn), 0600)
 	if err != nil {
@@ -53,8 +56,4 @@ func saveInFile(path, dataOut, dataIn string) error {
 	}
 
 	return nil
-}
-
-func printOutVersion() {
-	fmt.Println(BuildVersion)
 }
