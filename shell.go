@@ -58,7 +58,7 @@ func STDINReader() []rune {
 // Parse extracts bytecode from go tool objdump output.
 func Parse(input string) Output {
 	var buffer bytes.Buffer
-	r, _ := regexp.Compile("\t[0-9a-f]+")
+	r := regexp.MustCompile("\t[0-9a-f]+")
 	matched := r.FindAllString(input, -1)
 
 	for _, e := range matched {
