@@ -9,12 +9,15 @@ import (
 	"strings"
 )
 
+// Output keep raw which is default, unformatted bytecode.
 type Output struct {
 	raw string
 }
 
+// Format0x format output adding 0x at the beginning at every code.
 func (o Output) Format0x() string {
 	var buffer bytes.Buffer
+
 	bytesArray := []byte(o.raw)
 
 	for c := 0; c <= len(bytesArray)-2; {
@@ -22,16 +25,19 @@ func (o Output) Format0x() string {
 		buffer.WriteString(string(bytesArray[c]))
 		buffer.WriteString(string(bytesArray[c+1]))
 		buffer.WriteString(", ")
-		c = c + 2
+
+		c += 2
 	}
 
 	return buffer.String()
 }
 
+// Default return unformatted raw output.
 func (o Output) Default() string {
 	return o.raw
 }
 
+// STDINReader append standard input characters.
 func STDINReader() []rune {
 	var output []rune
 	reader := bufio.NewReader(os.Stdin)
@@ -41,12 +47,14 @@ func STDINReader() []rune {
 		if err != nil && err == io.EOF {
 			break
 		}
+
 		output = append(output, input)
 	}
 
 	return output
 }
 
+// Parse extracts bytecode from go tool objdump output.
 func Parse(input string) Output {
 	var buffer bytes.Buffer
 	r, _ := regexp.Compile("\t[0-9a-f]+")
