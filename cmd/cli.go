@@ -8,6 +8,7 @@ import (
 	sgo "github.com/ElPotato/shellgo"
 )
 
+// BuildVersion keep information about version tag along with commit ID
 var BuildVersion string
 
 func main() {
@@ -22,6 +23,7 @@ func main() {
 	}
 
 	data := sgo.STDINReader()
+
 	var ready string
 	if *format0x {
 		ready = sgo.Parse(string(data)).Format0x()
@@ -40,15 +42,16 @@ func main() {
 }
 
 func saveInFile(path, dataOut, dataIn string) error {
-	errIn := ioutil.WriteFile(path+".in", []byte(dataIn), 0644)
-	if errIn != nil {
-		return errIn
+	err := ioutil.WriteFile(path+".in", []byte(dataIn), 0600)
+	if err != nil {
+		return err
 	}
 
-	errOut := ioutil.WriteFile(path+".out", []byte(dataOut), 0644)
-	if errOut != nil {
-		return errOut
+	err = ioutil.WriteFile(path+".out", []byte(dataOut), 0600)
+	if err != nil {
+		return err
 	}
+
 	return nil
 }
 
