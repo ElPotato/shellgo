@@ -14,6 +14,7 @@ type TestData struct {
 	Path, Default, Format0x string
 }
 
+// nolint
 func getTestData() []TestData {
 	return []TestData{
 		{
@@ -36,6 +37,7 @@ func getTestData() []TestData {
 	}
 }
 
+// nolint
 func Test_parseOutputDataValidation(t *testing.T) {
 	for _, e := range getTestData() {
 		file, err := ioutil.ReadFile(e.Path)
