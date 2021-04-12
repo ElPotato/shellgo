@@ -1,10 +1,11 @@
 package shellgo_test
 
 import (
-	sgo "github.com/ElPotato/shellgo"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"testing"
+
+	sgo "github.com/ElPotato/shellgo"
+	"github.com/stretchr/testify/assert"
 )
 
 const inputDir = "./test_inputs/"

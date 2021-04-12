@@ -1,3 +1,4 @@
+// Package shellgo - Parse and format byte code from go tool objdump output.
 package shellgo
 
 import (
